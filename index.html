@@ -14,8 +14,11 @@
 <script src='threex-armarkercontrols.js'></script>
 <script src='threex-arsmoothedcontrols.js'></script>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-<script>
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: absolute; top: 10px; width:100%; text-align: center;z-index:1';>
+	<a href='https://github.com/jeromeetienne/AR.js/' target='_blank'>AR.js</a> - developement playground
+	<br/>
+	Contact me any time at <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
+</div><script>
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Init
 	//////////////////////////////////////////////////////////////////////////////////
@@ -122,7 +125,7 @@
 		// barcodeValue: 5,
 
 		type : 'pattern',
-		patternUrl : 'pattern-files/pattern-qian.patt',
+		patternUrl : 'pattern-files/pattern-hiro.patt',
 	})
 
 
@@ -153,17 +156,33 @@
 
 	// var arWorldRoot = markerRoot
 	var arWorldRoot = smoothedRoot
-	//加载Collada模型
-	var loader = new THREE.ColladaLoader();
-	//load(url,function)  url为模型路径，function(model)为模型加载完成后调用的函数，参数为加载完的模型model
-	loader.load( 'models/heart.dae', function ( collada ) {
-		dae = collada.scene; 
-		dae.scale.x = dae.scale.y = dae.scale.z = 1; //调节模型显示大小
-		arWorldRoot.add(dae);						   //将模型添加到group里
-		onRenderFcts.push(function(){				   //添加旋转动画
-		dae.rotation.z += 0.05
+
+	var mesh = new THREE.AxesHelper()
+	// markerRoot.add(mesh)
+	arWorldRoot.add(mesh)
+
+	// add a torus knot
+	var geometry	= new THREE.CubeGeometry(1,1,1);
+	var material	= new THREE.MeshNormalMaterial({
+		transparent : true,
+		opacity: 0.5,
+		side: THREE.DoubleSide
 	})
-	});
+	var mesh	= new THREE.Mesh( geometry, material );
+	mesh.position.y	= geometry.parameters.height/2
+	// markerRoot.add( mesh );
+	arWorldRoot.add(mesh)
+
+	var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
+	var material	= new THREE.MeshNormalMaterial();
+	var mesh	= new THREE.Mesh( geometry, material );
+	mesh.position.y	= 0.5
+	// markerRoot.add( mesh );
+	arWorldRoot.add( mesh );
+
+	onRenderFcts.push(function(delta){
+		mesh.rotation.x += delta * Math.PI
+	})
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
