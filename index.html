@@ -158,7 +158,7 @@
 	//load(url,function)  url为模型路径，function(model)为模型加载完成后调用的函数，参数为加载完的模型model
 	loader.load( 'models/heart.dae', function ( collada ) {
 		dae = collada.scene; 
-		dae.scale.x = dae.scale.y = dae.scale.z = 0.001; //调节模型显示大小
+		dae.scale.x = dae.scale.y = dae.scale.z = 1; //调节模型显示大小
 		arWorldRoot.add(dae);						   //将模型添加到group里
 		onRenderFcts.push(function(){				   //添加旋转动画
 		dae.rotation.z += 0.05
