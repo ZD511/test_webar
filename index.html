@@ -170,10 +170,10 @@
 	  arWorldRoot.add(obj);
 	  // 加载后的一些编辑操作
 	  
-	  obj.rotation.x+=Math.PI/2;
-	  obj.children[0].rotation.x+=Math.PI/2;
+	  obj.rotation.x+=-Math.PI/4;
+	  //obj.children[0].rotation.x+=Math.PI/2;
 	  obj.scale.set(0.05, 0.05, 0.05);
-	  obj.children[0].scale.set(0.05,0.05,0.05);//网格模型缩放	  
+	  //obj.children[0].scale.set(0.05,0.05,0.05);//网格模型缩放	  
 	  //obj.children[0].geometry.center();//网格模型的几何体居中
 	  obj.children[0].material.color.set(0xff0000);//设置材质颜色
 	})
