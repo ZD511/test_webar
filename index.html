@@ -166,7 +166,7 @@
 	  console.log(obj);
 	  // 查看加载器生成的材质对象：MeshPhongMaterial
 	  console.log(obj.children[0].material);
-	  obj.rotateX(Math.PI/4)
+	  //obj.rotateX(Math.PI/4)
 	  arWorldRoot.add(obj);
 	  // 加载后的一些编辑操作
 	  obj.scale.set(0.08, 0.08, 0.08);
@@ -183,9 +183,9 @@
 	//    arWorldRoot.add(mesh);
 	//});
 	
-	onRenderFcts.push(function(delta){
-		mesh.rotation.x += delta * Math.PI
-	})
+	//onRenderFcts.push(function(delta){
+	//	mesh.rotation.x += delta * Math.PI
+	//})
 	
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
