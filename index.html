@@ -166,6 +166,7 @@
 	  console.log(obj);
 	  // 查看加载器生成的材质对象：MeshPhongMaterial
 	  console.log(obj.children[0].material);
+	  obj.rotateX(Math.PI/4)
 	  arWorldRoot.add(obj);
 	  // 加载后的一些编辑操作
 	  obj.scale.set(0.08, 0.08, 0.08);
@@ -174,12 +175,17 @@
 	  obj.children[0].material.color.set(0xff0000);//设置材质颜色
 	})
 	
+	
 	//var loader = new THREE.ColladaLoader();
 	//var mesh;
 	//loader.load("models/heart.dae", function (result) {
 	//    mesh = result.scene.children[0].clone();
 	//    arWorldRoot.add(mesh);
 	//});
+	
+	onRenderFcts.push(function(delta){
+		mesh.rotation.x += delta * Math.PI
+	})
 	
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
