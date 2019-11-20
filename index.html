@@ -156,8 +156,8 @@
 	//////////////////////////////////////////////////////////////////////////////////
 	// var arWorldRoot = markerRoot
 	var arWorldRoot = smoothedRoot	
-	var axes=new THREE.AxisHelper();
-	arWorldRoot.add( axes );
+	//var axes=new THREE.AxisHelper();
+	//arWorldRoot.add( axes );
 
 	var loader = new THREE.OBJLoader();
 	// 没有材质文件，系统自动设置Phong网格材质
@@ -170,9 +170,9 @@
 	  arWorldRoot.add(obj);
 	  // 加载后的一些编辑操作
 	  obj.scale.set(0.05, 0.05, 0.05);
-	  obj.rotation.x=Math.PI/2;
-	  //obj.children[0].scale.set(0.05,0.05,0.05);//网格模型缩放
-	  //obj.children[0].rotation.x=Math.PI/2;
+	  obj.rotation.x+=Math.PI/2;
+	  obj.children[0].scale.set(0.05,0.05,0.05);//网格模型缩放
+	  obj.children[0].rotation.x+=Math.PI/2;
 	  //obj.children[0].geometry.center();//网格模型的几何体居中
 	  obj.children[0].material.color.set(0xff0000);//设置材质颜色
 	})
