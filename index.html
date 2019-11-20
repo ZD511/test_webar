@@ -55,15 +55,6 @@
     var arToolkitSource=new THREEx.ArToolkitSource({
         //to read from the webcam
         sourceType:'webcam'
- 
-        // // to read from an image
-        // sourceType : 'image',
-        // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/images/img.jpg',
-        // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/images/armchair.jpg',
- 
-        // to read from a video
-        // sourceType : 'video',
-        // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/videos/headtracking.mp4',
     })
  
     arToolkitSource.init(function onReady() {
@@ -88,7 +79,7 @@
     //create acToolkitContext
     var arToolkitContext=new THREEx.ArToolkitContext({
         //相机参数设置
-        cameraParametersUrl:THREEx.ArToolkitContext.baseURL+'../data/data/camera_para.dat',
+        cameraParametersUrl:'data/camera_para.dat',
         //debug:true,
         //detectionMode:'mono_and_matrix',
         detectionMode:'mono',
@@ -96,7 +87,7 @@
 //        matrixCodeType:'3x3',
         canvasWidth:80*3,
         canvasHeight:60*3,
-        maxDetectionRate:30, //最大旋转角度还是什么滴
+        maxDetectionRate:30,
     })
     //initialize it
     arToolkitContext.init(function onCompleted() {
