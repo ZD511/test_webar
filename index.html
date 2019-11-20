@@ -150,19 +150,29 @@
      //   arWorldRoot.add(avatar)
     //} );
     
-    var x = 0, y = 0;
-    var heartShape = new THREE.Shape() // From http://blog.burlock.org/html5/130-paths
-        .moveTo( x + 25, y + 25 )
-        .bezierCurveTo( x + 25, y + 25, x + 20, y, x, y )
-        .bezierCurveTo( x - 30, y, x - 30, y + 35, x - 30, y + 35 )
-        .bezierCurveTo( x - 30, y + 55, x - 10, y + 77, x + 25, y + 95 )
-        .bezierCurveTo( x + 60, y + 77, x + 80, y + 55, x + 80, y + 35 )
-        .bezierCurveTo( x + 80, y + 35, x + 80, y, x + 50, y )
-        .bezierCurveTo( x + 35, y, x + 25, y + 25, x + 25, y + 25 );
-    var geometry = new THREE.ExtrudeBufferGeometry( heartShape);
-    var mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( {color: 0xFF0000} ) );
-    mesh.scale.set( 1, 1, 1 );
-    scene.add( mesh );
+    //var x = 0, y = 0;
+    //var heartShape = new THREE.Shape() // From http://blog.burlock.org/html5/130-paths
+    //    .moveTo( x + 25, y + 25 )
+    //    .bezierCurveTo( x + 25, y + 25, x + 20, y, x, y )
+        //.bezierCurveTo( x - 30, y, x - 30, y + 35, x - 30, y + 35 )
+       // .bezierCurveTo( x - 30, y + 55, x - 10, y + 77, x + 25, y + 95 )
+      //  .bezierCurveTo( x + 60, y + 77, x + 80, y + 55, x + 80, y + 35 )
+      //  .bezierCurveTo( x + 80, y + 35, x + 80, y, x + 50, y )
+     //   .bezierCurveTo( x + 35, y, x + 25, y + 25, x + 25, y + 25 );
+    //var geometry = new THREE.ExtrudeBufferGeometry( heartShape);
+    //var mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( {color: 0xFF0000} ) );
+    //mesh.scale.set( 1, 1, 1 );
+    //scene.add( mesh );
+    
+    var loader = new THREE.GLTFLoader();
+        loader.load('models/heart.gltf',function (obj) {
+
+            console.log(obj);
+            obj.scene.position.y = 1;
+            arWorldRoot.add(obj.scene);
+            document.getElementById('loading').style.display = 'none';
+
+        }
  
     //renderer the Whole thing on the page
     //渲染场景到页面中
