@@ -168,10 +168,17 @@
 	  console.log(obj.children[0].material);
 	  arWorldRoot.add(obj);
 	  // 加载后的一些编辑操作
-	  obj.children[0].scale.set(2,2,2);//网格模型缩放
-	  obj.children[0].geometry.center();//网格模型的几何体居中
+	  obj.children[0].scale.set(0.5,0.5,0.5);//网格模型缩放
+	  //obj.children[0].geometry.center();//网格模型的几何体居中
 	  obj.children[0].material.color.set(0xff0000);//设置材质颜色
 	})
+	
+	//var loader = new THREE.ColladaLoader();
+	//var mesh;
+	//loader.load("models/heart.dae", function (result) {
+	//    mesh = result.scene.children[0].clone();
+	//    arWorldRoot.add(mesh);
+	//});
 	
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
