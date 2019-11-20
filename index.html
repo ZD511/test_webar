@@ -139,7 +139,7 @@
  
     //add a torus knot创建物体
     // collada
- 
+    
     var loader = new THREE.ColladaLoader();
     loader.load( 'models/heart.dae', function ( collada ) { 
         //调整对象状态
@@ -147,6 +147,7 @@
         avatar.rotation.x=Math.PI;
         avatar.rotation.z=Math.PI;
         avatar.scale.set(10,10,10);
+        arWorldRoot.add(avatar)
     } );
  
     //renderer the Whole thing on the page
