@@ -159,19 +159,19 @@
 	var axes=new THREE.AxisHelper(10);
 	arWorldRoot.add( axes );
 
-	// instantiate a loader
 	var loader = new THREE.OBJLoader();
-	// load a resource
-	loader.load('models/Heart.obj',function ( object ) {		
-		arWorldRoot.add( object );
-	},
-	// called when loading is in progresses
-	function ( xhr ) {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	},
-	function ( error ) {
-		console.log( 'An error happened' );
-	});
+	// 没有材质文件，系统自动设置Phong网格材质
+	loader.load('models/Heart.obj',function (obj) {
+	  // 控制台查看返回结构：包含一个网格模型Mesh的组Group
+	  console.log(obj);
+	  // 查看加载器生成的材质对象：MeshPhongMaterial
+	  console.log(obj.children[0].material);
+	  arWorldRoot.add(obj);
+	  // 加载后的一些编辑操作
+	  obj.children[0].scale.set(20,20,20);//网格模型缩放
+	  obj.children[0].geometry.center();//网格模型的几何体居中
+	  obj.children[0].material.color.set(0xff0000);//设置材质颜色
+	})
 	
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
