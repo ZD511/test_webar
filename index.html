@@ -159,7 +159,7 @@
         .bezierCurveTo( x + 60, y + 77, x + 80, y + 55, x + 80, y + 35 )
         .bezierCurveTo( x + 80, y + 35, x + 80, y, x + 50, y )
         .bezierCurveTo( x + 35, y, x + 25, y + 25, x + 25, y + 25 );
-    var mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( {color: 0xFF0000, transparent: false, opacity: 1.0} ) );
+    var mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( {color: 0xFF0000} ) );
     mesh.scale.set( 1, 1, 1 );
     group.add( mesh );
  
