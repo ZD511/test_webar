@@ -156,7 +156,7 @@
 	//////////////////////////////////////////////////////////////////////////////////
 	// var arWorldRoot = markerRoot
 	var arWorldRoot = smoothedRoot	
-	var axes=new THREE.AxisHelper(10);
+	var axes=new THREE.AxisHelper();
 	arWorldRoot.add( axes );
 
 	var loader = new THREE.OBJLoader();
@@ -168,7 +168,7 @@
 	  console.log(obj.children[0].material);
 	  arWorldRoot.add(obj);
 	  // 加载后的一些编辑操作
-	  obj.children[0].scale.set(20,20,20);//网格模型缩放
+	  obj.children[0].scale.set(2,2,2);//网格模型缩放
 	  obj.children[0].geometry.center();//网格模型的几何体居中
 	  obj.children[0].material.color.set(0xff0000);//设置材质颜色
 	})
