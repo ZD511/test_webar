@@ -158,7 +158,7 @@
 	var arWorldRoot = smoothedRoot	
 	//var axes=new THREE.AxisHelper();
 	//arWorldRoot.add( axes );
-
+	var object
 	var loader = new THREE.OBJLoader();
 	// 没有材质文件，系统自动设置Phong网格材质
 	loader.load('models/Heart.obj',function (obj) {
@@ -167,17 +167,17 @@
 	  // 查看加载器生成的材质对象：MeshPhongMaterial
 	  console.log(obj.children[0].material);
 	  //obj.rotateX(Math.PI/4)
-	  arWorldRoot.add(obj);
-	  // 加载后的一些编辑操作
-	  
-	  obj.rotation.x+=-Math.PI/4;
-	  //obj.children[0].rotation.x+=Math.PI/2;
-	  obj.scale.set(0.05, 0.05, 0.05);
-	  //obj.children[0].scale.set(0.05,0.05,0.05);//网格模型缩放	  
-	  //obj.children[0].geometry.center();//网格模型的几何体居中
-	  obj.children[0].material.color.set(0xff0000);//设置材质颜色
+	  object = obj	  
 	})
 	
+	  // 加载后的一些编辑操作
+	  object.rotation.x+=-Math.PI/4;
+	  //obj.children[0].rotation.x+=Math.PI/2;
+	  object.scale.set(0.04, 0.04, 0.04);
+	  //obj.children[0].scale.set(0.05,0.05,0.05);//网格模型缩放	  
+	  //obj.children[0].geometry.center();//网格模型的几何体居中
+	  object.children[0].material.color.set(0xff0000);//设置材质颜色
+	arWorldRoot.add(object);
 	
 	//var loader = new THREE.ColladaLoader();
 	//var mesh;
