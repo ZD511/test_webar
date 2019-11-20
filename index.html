@@ -140,15 +140,28 @@
     //add a torus knot创建物体
     // collada
     
-    var loader = new THREE.ColladaLoader();
-    loader.load( 'models/heart.dae', function ( collada ) { 
+    //var loader = new THREE.ColladaLoader();
+    //loader.load( 'models/heart.dae', function ( collada ) { 
         //调整对象状态
-        var avatar = collada.scene;
-        avatar.rotation.x=Math.PI;
-        avatar.rotation.z=Math.PI;
-        avatar.scale.set(10,10,10);
-        arWorldRoot.add(avatar)
-    } );
+    //    var avatar = collada.scene;
+    //    avatar.rotation.x=Math.PI;
+    //    avatar.rotation.z=Math.PI;
+     //   avatar.scale.set(10,10,10);
+     //   arWorldRoot.add(avatar)
+    //} );
+    
+    var x = 0, y = 0;
+    var heartShape = new THREE.Shape() // From http://blog.burlock.org/html5/130-paths
+        .moveTo( x + 25, y + 25 )
+        .bezierCurveTo( x + 25, y + 25, x + 20, y, x, y )
+        .bezierCurveTo( x - 30, y, x - 30, y + 35, x - 30, y + 35 )
+        .bezierCurveTo( x - 30, y + 55, x - 10, y + 77, x + 25, y + 95 )
+        .bezierCurveTo( x + 60, y + 77, x + 80, y + 55, x + 80, y + 35 )
+        .bezierCurveTo( x + 80, y + 35, x + 80, y, x + 50, y )
+        .bezierCurveTo( x + 35, y, x + 25, y + 25, x + 25, y + 25 );
+    var mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( {color: 0xFF0000, transparent: false, opacity: 1.0} ) );
+    mesh.scale.set( 1, 1, 1 );
+    group.add( mesh );
  
     //renderer the Whole thing on the page
     //渲染场景到页面中
