@@ -168,7 +168,8 @@
 	  console.log(obj.children[0].material);
 	  arWorldRoot.add(obj);
 	  // 加载后的一些编辑操作
-	  obj.children[0].scale.set(0.001,0.001,0.001);//网格模型缩放
+	  obj.scale.set(0.01, 0.01, 0.01);
+	  //obj.children[0].scale.set(0.001,0.001,0.001);//网格模型缩放
 	  //obj.children[0].geometry.center();//网格模型的几何体居中
 	  obj.children[0].material.color.set(0xff0000);//设置材质颜色
 	})
