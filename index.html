@@ -163,7 +163,7 @@
 	// 没有材质文件，系统自动设置Phong网格材质
 	loader.load('models/Heart.obj',function (obj) {
 		obj.scale.set(0.08, 0.08, 0.08);
-		obj.children[0].scale.set(0.02,0.02,0.02);//网格模型缩放
+		obj.children[0].scale.set(0.08,0.08,0.08);//网格模型缩放
 		var axis = new THREE.Vector3(1,0,0);//向量axis
 		obj.rotateOnAxis(axis,-Math.PI/4);//绕axis轴旋转π/8
 	  // 控制台查看返回结构：包含一个网格模型Mesh的组Group
