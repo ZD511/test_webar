@@ -162,22 +162,20 @@
 	var loader = new THREE.OBJLoader();
 	// 没有材质文件，系统自动设置Phong网格材质
 	loader.load('models/Heart.obj',function (obj) {
+		obj.scale.set(0.04, 0.04, 0.04);
+		var axis = new THREE.Vector3(1,0,0);//向量axis
+		obj.rotateOnAxis(axis,-Math.PI/4);//绕axis轴旋转π/8
 	  // 控制台查看返回结构：包含一个网格模型Mesh的组Group
 	  console.log(obj);
 	  // 查看加载器生成的材质对象：MeshPhongMaterial
 	  console.log(obj.children[0].material);
-	  //obj.rotateX(Math.PI/4)
-	  object = obj	  
-	})
-	
-	  // 加载后的一些编辑操作
-	  object.rotation.x+=-Math.PI/4;
-	  //obj.children[0].rotation.x+=Math.PI/2;
-	  object.scale.set(0.04, 0.04, 0.04);
+	arWorldRoot.add(obj);
+	// 加载后的一些编辑操作
+	  //obj.children[0].rotation.x+=Math.PI/2;	  
 	  //obj.children[0].scale.set(0.05,0.05,0.05);//网格模型缩放	  
 	  //obj.children[0].geometry.center();//网格模型的几何体居中
-	  object.children[0].material.color.set(0xff0000);//设置材质颜色
-	arWorldRoot.add(object);
+	  obj.children[0].material.color.set(0xff0000);//设置材质颜色		
+	})
 	
 	//var loader = new THREE.ColladaLoader();
 	//var mesh;
@@ -187,7 +185,7 @@
 	//});
 	
 	//onRenderFcts.push(function(delta){
-	//	mesh.rotation.x += delta * Math.PI
+	//	obj.rotation.x += delta * Math.PI
 	//})
 	
 	//////////////////////////////////////////////////////////////////////////////////
