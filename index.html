@@ -156,11 +156,13 @@
 	//////////////////////////////////////////////////////////////////////////////////
 	// var arWorldRoot = markerRoot
 	var arWorldRoot = smoothedRoot	
-	
+	var axes=new THREE.AxisHelper(10);
+	arWorldRoot.add( axes );
+
 	// instantiate a loader
 	var loader = new THREE.OBJLoader();
 	// load a resource
-	loader.load('models/Heart.obj',function ( object ) {
+	loader.load('models/Heart.obj',function ( object ) {		
 		arWorldRoot.add( object );
 	},
 	// called when loading is in progresses
